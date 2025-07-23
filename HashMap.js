@@ -1,7 +1,7 @@
 class HashMap {
-    constructor(){
-        this.load_factor;
-        this.capacity;
+    constructor(load = 0.8, capacity = 16){
+        this.load_factor = load;
+        this.capacity = capacity;
     }
 
     hash(key) {
