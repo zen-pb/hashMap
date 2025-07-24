@@ -1,5 +1,5 @@
 class HashMap {
-    constructor(load = 0.8, capacity = 16){
+    constructor(load = 0.8, capacity = 17){
         this.load_factor = load;
         this.capacity = capacity;
     }
@@ -9,7 +9,7 @@ class HashMap {
             
         const primeNumber = 31;
         for (let i = 0; i < key.length; i++) {
-            hashCode = primeNumber * hashCode + key.charCodeAt(i);
+            hashCode = (primeNumber * hashCode + key.charCodeAt(i)) % this.capacity;
         }
 
         return hashCode;
