@@ -5,6 +5,7 @@ class HashMap {
         this.buckets = Array.from({ length: capacity }, () => new LinkedList());
         this.load_factor = load;
         this.capacity = capacity;
+        this.numberOfBuckets = 0;
     }
 
     hash(key) {
@@ -32,6 +33,12 @@ class HashMap {
         }
 
         bucket.append({key, value});
+        this.numberOfBuckets += 1;
+
+        if(this.numberOfBuckets / this.capacity >= this.load_factor){
+            this.resize();
+        }
+
         return;
     }
 
@@ -65,5 +72,21 @@ class HashMap {
 
     entries(){
         
+    }
+
+    resize() {
+        const oldBuckets = this.buckets;
+        this.capacity = this.capacity * 2;
+        this.buckets = Array.from({ length: this.capacity }, () => new LinkedList());
+        this.size = 0; 
+
+        for (const bucket of oldBuckets) {
+            let current = bucket.head;
+            while (current) {
+                const { key, value } = current.value;
+                this.set(key, value); 
+                current = current.next;
+            }
+        }
     }
 };
