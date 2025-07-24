@@ -19,7 +19,20 @@ class HashMap {
     } 
 
     set(key, value){
-        
+        const index = this.hash(key);
+        const bucket = this.buckets[index];
+
+        let current = bucket.head;
+        while (current) {
+            if (current.value.key === key){
+                current.value.value = value;
+                return;
+            }
+            current = current.next;
+        }
+
+        bucket.append({key, value});
+        return;
     }
 
     get(key){
