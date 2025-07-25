@@ -82,8 +82,8 @@ class HashMap {
         let counter = 0;
         while (current) {
             if (current.value.key === key){
-                current.removeAt(counter);
-                if(current.size() === 0){
+                bucket.removeAt(counter);
+                if(bucket.size() === 0){
                     this.numberOfBuckets -= 1;
                 }
                 return true;
