@@ -33,7 +33,8 @@ class HashMap {
         }
 
         bucket.append({key, value});
-        this.numberOfBuckets += 1;
+        
+        this.numberOfBuckets += 1; 
 
         if(this.numberOfBuckets / this.capacity >= this.load_factor){
             this.resize();
@@ -73,7 +74,24 @@ class HashMap {
     }
 
     remove(key){
+        const index = this.hash(key);
+        const bucket = this.buckets[index];
 
+        let current = bucket.head;
+        let counter = 0;
+        while (current) {
+            if (current.value.key === key){
+                current.removeAt(counter);
+                if(current.size() === 0){
+                    this.numberOfBuckets -= 1;
+                }
+                return true;
+            }
+            current = current.nextNode;
+            counter += 1;
+        }
+
+        return false;
     }
 
     length(){
