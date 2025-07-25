@@ -29,7 +29,7 @@ class HashMap {
                 current.value.value = value;
                 return;
             }
-            current = current.next;
+            current = current.nextNode;
         }
 
         bucket.append({key, value});
@@ -51,7 +51,7 @@ class HashMap {
             if (current.value.key === key){
                 return current.value.value;
             }
-            current = current.next;
+            current = current.nextNode;
         }
 
         return null;
@@ -96,7 +96,7 @@ class HashMap {
             while (current) {
                 const { key, value } = current.value;
                 this.set(key, value); 
-                current = current.next;
+                current = current.nextNode;
             }
         }
     }
