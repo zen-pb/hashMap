@@ -142,6 +142,7 @@ class LinkedList {
 
         if(counter === index){
             previous.nextNode = new Node(value, current)
+            this.length += 1;
             return;
         }
     }
@@ -151,6 +152,7 @@ class LinkedList {
 
         if (index === 0) {
         this.head = this.head.nextNode;
+        this.length -= 1;
         return;
         }
 
@@ -168,6 +170,7 @@ class LinkedList {
 
         if(counter == index){
             previous.nextNode = current.nextNode;
+            this.length -= 1;
             return;
         }
     }
