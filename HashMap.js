@@ -96,7 +96,14 @@ class HashMap {
     }
 
     length(){
+        let numberOfStoredKeys = 0;
+        for(let i = 0; i < this.capacity - 1; i++){
+            let bucket = this.buckets[i];
 
+            numberOfStoredKeys += bucket.size();
+        }
+
+        return numberOfStoredKeys;
     }
 
     clear(){
