@@ -12,3 +12,7 @@ A JavaScript hash map activity from theodinproject. It showcases a HashMap class
 - **keys()**: Returns an array containing all the keys inside the hash map.
 - **values()**: Returns an array containing all the values.
 - **entries()**: Returns an array that contains each key, value pair. Example: [[firstKey, firstValue], [secondKey, secondValue]]
+
+## hashSet
+
+This repository also features a hash set which only stores keys instead of keys and values. Its methods are copied from the HashMap class, removing sections where value is included.
