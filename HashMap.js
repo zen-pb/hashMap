@@ -33,8 +33,9 @@ class HashMap {
         }
 
         bucket.append({key, value});
-        
-        this.numberOfBuckets += 1; 
+        if(bucket.size() === 1){
+            this.numberOfBuckets += 1;
+        }
 
         if(this.numberOfBuckets / this.capacity >= this.load_factor){
             this.resize();
