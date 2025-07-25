@@ -58,7 +58,18 @@ class HashMap {
     }
 
     has(key){
+        const index = this.hash(key);
+        const bucket = this.buckets[index];
 
+        let current = bucket.head;
+        while (current) {
+            if (current.value.key === key){
+                return true;
+            }
+            current = current.nextNode;
+        }
+
+        return false;
     }
 
     remove(key){
