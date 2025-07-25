@@ -147,7 +147,7 @@ class HashMap {
 
             let current = bucket.head;
             while(current) {
-                entriesArray.push([current.value.value, current.value.value]);
+                entriesArray.push([current.value.key, current.value.value]);
                 current = current.nextNode;
             }
         }
