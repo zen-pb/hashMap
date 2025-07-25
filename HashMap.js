@@ -43,7 +43,18 @@ class HashMap {
     }
 
     get(key){
+        const index = this.hash(key);
+        const bucket = this.buckets[index];
 
+        let current = bucket.head;
+        while (current) {
+            if (current.value.key === key){
+                return current.value.value;
+            }
+            current = current.next;
+        }
+
+        return null;
     }
 
     has(key){
