@@ -97,7 +97,7 @@ class HashMap {
 
     length(){
         let numberOfStoredKeys = 0;
-        for(let i = 0; i < this.capacity - 1; i++){
+        for(let i = 0; i < this.capacity; i++){
             let bucket = this.buckets[i];
 
             numberOfStoredKeys += bucket.size();
@@ -112,7 +112,7 @@ class HashMap {
 
     keys(){
         let keysArray = [];
-        for(let i = 0; i < this.capacity - 1; i++){
+        for(let i = 0; i < this.capacity; i++){
             let bucket = this.buckets[i];
 
             let current = bucket.head;
@@ -127,7 +127,7 @@ class HashMap {
 
     values(){
         let valuesArray = [];
-        for(let i = 0; i < this.capacity - 1; i++){
+        for(let i = 0; i < this.capacity; i++){
             let bucket = this.buckets[i];
 
             let current = bucket.head;
@@ -142,7 +142,7 @@ class HashMap {
 
     entries(){
         let entriesArray = [];
-        for(let i = 0; i < this.capacity - 1; i++){
+        for(let i = 0; i < this.capacity; i++){
             let bucket = this.buckets[i];
 
             let current = bucket.head;
