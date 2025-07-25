@@ -126,7 +126,18 @@ class HashMap {
     }
 
     values(){
+        let valuesArray = [];
+        for(let i = 0; i < this.capacity - 1; i++){
+            let bucket = this.buckets[i];
 
+            let current = bucket.head;
+            while(current) {
+                valuesArray.push(current.value.value);
+                current = current.nextNode;
+            }
+        }
+
+        return valuesArray;
     }
 
     entries(){
